@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="tab-panels">
+        <ul class="tabs">
+            <li rel="panel1" class="active">panel1</li>
+            <li rel="panel2">panel2</li>
+            <li rel="panel3">panel3</li>
+            <li rel="panel4">panel4</li>
+        </ul>
+
+        <div id="panel1" class="panel active">
+            content1<br />
+            content1<br />
+            content1<br />
+            content1<br />
+            content1<br />
+        </div>
+        <div id="panel2" class="panel">
+            content2<br />
+            content2<br />
+            content2<br />
+            content2<br />
+            content2<br />
+        </div>
+        <div id="panel3" class="panel">
+            content3<br />
+            content3<br />
+            content3<br />
+            content3<br />
+            content3<br />
+        </div>
+        <div id="panel4" class="panel">
+            content4<br />
+            content4<br />
+            content4<br />
+            content4<br />
+            content4<br />
+        </div>
+    </div>
+
+
+
+    <div class="tab-panels">
+        <ul class="tabs">
+            <li rel="panel5" class="active">panel5</li>
+            <li rel="panel6">panel6</li>
+            <li rel="panel7">panel7</li>
+            <li rel="panel8">panel8</li>
+        </ul>
+
+        <div id="panel5" class="panel active">
+            content5<br />
+            content5<br />
+            content5<br />
+            content5<br />
+            content5<br />
+        </div>
+        <div id="panel6" class="panel">
+            content6<br />
+            content6<br />
+            content6<br />
+            content6<br />
+            content6<br />
+        </div>
+        <div id="panel7" class="panel">
+            content7<br />
+            content7<br />
+            content7<br />
+            content7<br />
+            content7<br />
+        </div>
+        <div id="panel8" class="panel">
+            content8<br />
+            content8<br />
+            content8<br />
+            content8<br />
+            content8<br />
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('.tab-panels .panel:not(.active)').hide();
+
+
+            $('.tab-panels .tabs li').on('click', function () {
+                var $panel = $(this).closest('.tab-panels');
+                $panel.find('.tabs li.active').removeClass('active');
+                $(this).addClass('active');
+
+                var panelToShow = $(this).attr('rel');
+
+                $panel.find('.panel.active').slideUp(300, showNextPanel);
+
+                function showNextPanel() {
+                    $(this).removeClass('active');
+                    $('#' + panelToShow).slideDown(300, function () {
+                        $(this).addClass('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
