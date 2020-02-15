@@ -1,0 +1,12 @@
+[
+    {
+        id: 1,
+        name: 'Jams',
+        drink: 'Coffee'
+    },
+    {
+        id: 2,
+        name: 'John',
+        drink: 'Latte'
+    },
+]
