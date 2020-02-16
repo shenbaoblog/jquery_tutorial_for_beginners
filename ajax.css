@@ -23,7 +23,7 @@ ul li .edit {
 }
 
 ul li.edit .edit {
-  display: inline;
+  display: initial;
 }
 
 ul li.edit .noedit {
